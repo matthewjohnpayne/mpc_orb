@@ -115,7 +115,7 @@ def create_mpcorb_schema_from_defining_sample_json():
     """
 
     # load defining sample
-    sample_dict = load_json( schema_name_dict['mpcorb_defining_sample')
+    sample_dict = load_json( schema_name_dict['mpcorb_defining_sample'] )
 
     # instantiate "builder" & use to convert json-dict to an (initial) schema
     schema = get_schema_from_builder(sample_dict)
