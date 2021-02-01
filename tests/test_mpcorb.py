@@ -21,23 +21,23 @@ import filepaths
 def test_create_mpcorb_schema_from_defining_sample_json_A():
 
     # Assert that the schema file does NOT exist
-    assert not isfile( filepaths.schema_name_dict['mpc_orb_schema']  )
+    assert not isfile( filepaths.schema_name_dict['mpcorb_schema']  )
     
     # Assert that the required defining input file DOES exist
-    assert isfile( filepaths.schema_name_dict['mpc_orb_defining_sample']  )
+    assert isfile( filepaths.schema_name_dict['mpcorb_defining_sample']  )
 
     # Run the code to create the schema from the defining sample json
     schema.create_mpcorb_schema_from_defining_sample_json()
 
     # Assert that the schema file exists
-    assert isfile( filepaths.schema_name_dict['mpc_orb_schema']  )
+    assert isfile( filepaths.schema_name_dict['mpcorb_schema']  )
 
 
 def test_validate_orbfit_A():
     """ Test that the defining sample passes validation (it really should!!!) """
 
     # Input filepath
-    f = filepaths.schema_name_dict['mpc_orb_defining_sample']
+    f = filepaths.schema_name_dict['mpcorb_defining_sample']
         
     # Validate
     schema.validate_orbfit( f )
