@@ -11,6 +11,8 @@ try:
     import get_ids as ids
     import mpc_convert as mc
     import mpcdev_psql as mpc_psql
+    
+    sys.path.append('/ssd/share/apps/orbit_utils')
     import orbfit_to_dict as o2d
 except:
     raise Exception("This conversion routine is intended for internal MPC usage and requires the modules, which are likely to only be available on internal MPC machines")
