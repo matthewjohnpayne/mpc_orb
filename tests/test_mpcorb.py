@@ -47,6 +47,6 @@ def test_validate_orbfit_A():
     f = filepaths.schema_name_dict['mpcorb_defining_sample']
         
     # Validate
-    schema.validate_orbfit( f )
+    schema.validate_standard( f )
 
 
