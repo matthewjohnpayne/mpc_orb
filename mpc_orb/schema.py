@@ -96,7 +96,7 @@ def get_schema_from_builder(list_of_sample_dicts):
     # Add data from defining sample file
     assert isinstance(list_of_sample_dicts , list)
     for d in list_of_sample_dicts:
-        assert isinstance(d, dict):
+        assert isinstance(d, dict)
         builder.add_object(d)
 
     # Convert to schema
