@@ -11,6 +11,8 @@ import sys
 pack_dir  = dirname(dirname(abspath(__file__))) # Package directory
 code_dir  = join(pack_dir, 'mpc_orb')
 sys.path.append("code_dir")
+print("code_dir", code_dir)
+print("path", sys.path)
 
 import schema
 import filepaths
