@@ -28,13 +28,13 @@ def test_convert_A():
     schema.validate_orbfit(orbfit_dict)
 
     # do the conversion (this is the heart of the routine)
-    standard_format_dict = convert.std_format_els(orbfit_dict)
+    mpcorb_format_dict = convert.std_format_els(orbfit_dict)
 
     # Just assert that we have a dict for now
-    assert isinstance(standard_format_dict , dict )
+    assert isinstance(mpcorb_format_dict , dict )
     
     # Now use the above to create/save a defining "example" json file for mpcorb
     # *** NOT CLEAR WE WANT TO BE DOING THIS HERE ...
-    # *** SORT OF HIDING-AWAY AN IMPORTANT PROCESS STEP ... 
-    schema.save_json(filepaths.schema_name_dict['mpcorb_defining_sample'], standard_format_dict)
+    # *** SORT OF HIDING-AWAY AN IMPORTANT PROCESS STEP ...
+    schema.save_json(filepaths.schema_name_dict['mpcorb_defining_sample'], mpcorb_format_dict)
 
