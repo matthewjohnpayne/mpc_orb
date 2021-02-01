@@ -9,6 +9,7 @@ from os.path import join, dirname, abspath
 # filepaths
 # -----------------------
 pack_dir  = dirname(dirname(abspath(__file__))) # Package directory
+print("pack_dir  = ", pack_dir )
 def_dir  = join(pack_dir, 'defining_sample_json')
 sch_dir  = join(pack_dir, 'schema_json')
 tmp_dir  = join(pack_dir, 'dev_json')
