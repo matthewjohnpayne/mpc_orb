@@ -4,7 +4,7 @@
 # -----------------------
 import copy
 import json
-import sys, os 
+import sys, os
 
 # MPC module imports
 # -----------------------
@@ -429,7 +429,7 @@ def translate_nongravs( d ):
 
     return translated_dict
 
-def generate_system_dictionary(coorddict):
+def generate_system_dictionary(elsdict):
     """ put system data into a dictionary """
     # THE CHECKS WILL BECOME UNNECESSARY GIVEN VALIDATION
     return {    "eph"    : 'JPLDE431'   if not elsdict['eph']   else elsdict['eph'],
