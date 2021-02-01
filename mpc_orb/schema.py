@@ -44,7 +44,7 @@ def validate_orbfit(arg):
     
     # validate
     # NB # If no exception is raised by validate(), the instance is valid.
-    validate(instance=data, schema=load_json( schema_name_dict['orbfit_schema'] ))
+    validate(instance=orbfit_dict, schema=load_json( schema_name_dict['orbfit_schema'] ))
 
     return True
 
