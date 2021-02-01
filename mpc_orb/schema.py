@@ -92,7 +92,7 @@ def create_orbfit_felfile_schema_from_defining_sample_json():
     """
 
     # load defining sample
-    sample_dict = load_json( schema_name_dict['orbfit_defining_sample')
+    sample_dict = load_json( schema_name_dict['orbfit_defining_sample'])
 
     # instantiate "builder" & use to convert json-dict to an (initial) schema
     schema_dict = get_schema_from_builder(sample_dict)
