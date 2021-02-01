@@ -41,9 +41,6 @@ def validate_orbfit(arg):
 
     # interpret the input (allow dict or json-filepath)
     orbfit_dict, input_filepath = interpret.interpret(arg)
-    print("HERE")
-    print('orbfit_dict')
-    for k,v in orbfit_dict.items(): print(k,v)
     
     # validate
     # NB # If no exception is raised by validate(), the instance is valid.
