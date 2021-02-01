@@ -121,12 +121,11 @@ def create_mpcorb_schema_from_defining_sample_json():
     sample_dict = load_json( schema_name_dict['mpcorb_defining_sample'] )
 
     # instantiate "builder" & use to convert json-dict to an (initial) schema
-    schema = get_schema_from_builder(sample_dict)
+    schema_dict = get_schema_from_builder(sample_dict)
 
     # do mpc_orb-specific modifications
     schema_dict = do_mpcorb_schema_mods(schema_dict)
-
-
+    
     # Save schema-dict to file
     save_json( schema_name_dict['mpcorb_schema'] , schema_dict )
     
