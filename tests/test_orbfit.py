@@ -31,3 +31,13 @@ def test_create_orbfit_felfile_schema_from_defining_sample_json_A():
 
     # Assert that the schema file exists
     assert isfile( filepaths.schema_name_dict['orbfit_schema']  )
+
+
+def test_validate_orbfit_A():
+    """ Test that the defining sample passes validation (it really should!!!) """
+
+    # Input filepath
+    f = filepaths.schema_name_dict['orbfit_defining_sample']
+        
+    # Validate
+    schema.validate_orbfit( f )
