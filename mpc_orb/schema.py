@@ -105,6 +105,9 @@ def create_orbfit_felfile_schema_from_defining_sample_json():
     
     return True
 
+def do_orbfit_schema_mods(schema_dict):
+    """ No schema mods currently implemented"""
+    return schema_dict
 
 def create_mpcorb_schema_from_defining_sample_json():
     """
@@ -129,3 +132,6 @@ def create_mpcorb_schema_from_defining_sample_json():
     
     return True
 
+def do_mpcorb_schema_mods(schema_dict):
+    """ No schema mods currently implemented"""
+    return schema_dict
