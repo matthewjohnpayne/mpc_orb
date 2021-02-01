@@ -95,7 +95,10 @@ def get_schema_from_builder(list_of_sample_dicts):
 
     # Add data from defining sample file
     assert isinstance(list_of_sample_dicts , list)
-    for d in list_of_sample_dicts:
+    for n, d in enumerate(list_of_sample_dicts):
+        print(n)
+        print(d)
+        print()
         assert isinstance(d, dict)
         builder.add_object(d)
 
