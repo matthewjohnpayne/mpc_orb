@@ -27,7 +27,7 @@ def save_json( json_filepath , data_dict ):
     if os.path.isfile(json_filepath):
         raise Exception(f"The important json file {json_filepath} already exists ... To prevent accidental over-writes, this routine will go no further ... ")
     else:
-        with open( json_filepath. 'w' ) as f:
+        with open( json_filepath , 'w' ) as f:
             json.dump(data_dict , f , indent=4)
 
 
