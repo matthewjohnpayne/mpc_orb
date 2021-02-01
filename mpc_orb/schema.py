@@ -6,7 +6,7 @@ import json
 from jsonschema import validate
 import genson
 from genson import SchemaBuilder
-from os.path import join, dirname, abspath
+from os.path import join, dirname, abspath, isfile
 
 
 # local imports
@@ -24,7 +24,7 @@ def load_json( json_filepath ):
         
 def save_json( json_filepath , data_dict ):
     """ Being very careful here as any jsons saved by this module will be the main standardizing schema """
-    if os.path.isfile(json_filepath):
+    if isfile(json_filepath):
         raise Exception(f"The important json file {json_filepath} already exists ... To prevent accidental over-writes, this routine will go no further ... ")
     else:
         with open( json_filepath , 'w' ) as f:
