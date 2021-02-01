@@ -20,7 +20,7 @@ from filepaths import schema_name_dict
 def load_json( json_filepath ):
     """ """
     with open( json_filepath ) as f:
-        return = json.load(f)
+        return json.load(f)
         
 def save_json( json_filepath , data_dict ):
     """ Being very careful here as any jsons saved by this module will be the main standardizing schema """
