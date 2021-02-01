@@ -9,6 +9,7 @@ from os.path import join, dirname, abspath, isfile
 # local imports
 # -----------------------
 import interpret
+import schema
 from filepaths import filepath_dict
 
 
