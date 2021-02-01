@@ -32,5 +32,9 @@ def test_convert_A():
 
     # Just assert that we have a dict for now
     assert isinstance(standard_format_dict , dict )
-
+    
+    # Now use the above to create/save a defining "example" json file for mpcorb
+    # *** NOT CLEAR WE WANT TO BE DOING THIS HERE ...
+    # *** SORT OF HIDING-AWAY AN IMPORTANT PROCESS STEP ... 
+    schema.save_json(filepaths.schema_name_dict['mpcorb_defining_sample'], standard_format_dict)
 
