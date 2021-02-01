@@ -11,8 +11,6 @@ import sys
 pack_dir  = dirname(dirname(abspath(__file__))) # Package directory
 code_dir  = join(pack_dir, 'mpc_orb')
 sys.path.append(code_dir)
-print("code_dir", code_dir)
-print("path", sys.path)
 
 import schema
 import filepaths
@@ -29,7 +27,7 @@ def test_create_orbfit_felfile_schema_from_defining_sample_json_A():
     assert isfile( filepaths.schema_name_dict['orbfit_defining_sample']  )
 
     # Run the code to create the schema from the defining sample json
-    schema.schema.create_orbfit_felfile_schema_from_defining_sample_json()
+    schema.create_orbfit_felfile_schema_from_defining_sample_json()
 
     # Assert that the schema file exists
     assert isfile( filepaths.schema_name_dict['orbfit_schema']  )
