@@ -58,7 +58,7 @@ def validate_standard( arg ):
     """
 
     # interpret the input (allow dict or json-filepath)
-    standard_format_dict, input_filepath = interpret.interpret(arg)
+    data, input_filepath = interpret.interpret(arg)
 
     # validate
     # NB # If no exception is raised by validate(), the instance is valid.
