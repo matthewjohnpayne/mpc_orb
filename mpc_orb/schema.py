@@ -12,20 +12,10 @@ from os.path import join, dirname, abspath
 # local imports
 # -----------------------
 import interpret
-
-# filepaths
-# -----------------------
-pack_dir  = dirname(dirname(abspath(__file__))) # Package directory
-data_dir  = join(pack_dir, 'json_files', 'experiment01')
-schema_name_dict = {
-    'orbfit_defining_sample'    : join(data_dir, 'orbfit_felfile_defining_sample.json'),
-    'mpcorb_defining_sample'    : join(data_dir, 'mpc_orb_defining_sample.json'),
-    'orbfit_schema'             : join(data_dir, 'orbfit_felfile_schema.json'),
-    'mpcorb_schema'             : join(data_dir, 'mpc_orb_schema.json'),
-}
+from filepaths import schema_name_dict
 
 
-# functions
+# IO functions
 # -----------------------
 def load_json( json_filepath ):
     """ """
@@ -40,6 +30,9 @@ def save_json( json_filepath , data_dict ):
         with open( json_filepath. 'w' ) as f:
             json.dump(data_dict , f , indent=4)
 
+
+# Validation functions
+# -----------------------
 def validate_orbfit(arg):
     """
     Test whether json is a valid example of an orbfit-felfile json
@@ -70,6 +63,9 @@ def validate_standard( arg ):
     
     return True
 
+
+# Schema Creation functions
+# -----------------------
 def get_schema_from_builder(sample_dict):
     """
     This code uses the "genson" package to create a json "schema" dictionary
