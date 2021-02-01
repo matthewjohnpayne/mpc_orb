@@ -18,6 +18,7 @@ import filepaths
 
 # Tests
 # -----------------------
+'''
 def test_create_mpcorb_schema_from_defining_sample_json_A():
     """
     This test is CRITICALLY IMPORTANT : It CREATES THE SCHEMA
@@ -35,7 +36,7 @@ def test_create_mpcorb_schema_from_defining_sample_json_A():
     # Assert that the schema file exists
     assert isfile( filepaths.schema_name_dict['mpcorb_schema']  )
 
-
+'''
 def test_validate_orbfit_A():
     """ Test that the defining sample passes validation (it really should!!!) """
 
