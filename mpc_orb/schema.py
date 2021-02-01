@@ -59,7 +59,7 @@ def validate_standard( arg ):
 
     # validate
     # NB # If no exception is raised by validate(), the instance is valid.
-    validate(instance=data, schema=load_json( schema_name_dict['mpcorb_schema'))
+    validate(instance=data, schema=load_json( schema_name_dict['mpcorb_schema'] ))
     
     return True
 
