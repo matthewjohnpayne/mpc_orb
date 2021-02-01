@@ -8,9 +8,10 @@ code_dir  = join(pack_dir, 'mpc_orb')
 sys.path.append(code_dir)
 
 import schema
-import convert
 import filepaths
+import interpret
 
+import convert
 
 # Tests
 # -----------------------
