@@ -9,7 +9,8 @@ from os.path import join, dirname, abspath, isfile
 
 import sys
 pack_dir  = dirname(dirname(abspath(__file__))) # Package directory
-sys.path.append("pack_dir")
+code_dir  = join(pack_dir, 'mpc_orb')
+sys.path.append("code_dir")
 
 import schema
 import filepaths
