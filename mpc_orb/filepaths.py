@@ -1,3 +1,11 @@
+"""
+Defining filepaths used by mpc_orb
+"""
+
+# Import third-party packages
+# -----------------------
+from os.path import join, dirname, abspath
+
 # filepaths
 # -----------------------
 pack_dir  = dirname(dirname(abspath(__file__))) # Package directory
