@@ -351,7 +351,7 @@ def translate_nongravs( d ):
     
     # Do we have any non-gravs ?
     if d["numparams"] == 6 and d["nongrav_model"] == 0:
-        pass
+        translated_dict['non_gravs'] = False
     elif d["numparams"] > 6 and d["nongrav_model"] > 0:
         translated_dict['non_gravs'] = True
     else:
