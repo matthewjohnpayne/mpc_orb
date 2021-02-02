@@ -140,8 +140,7 @@ def do_orbfit_conversion_schema_mods(schema_dict):
     """ No schema mods currently implemented"""
     
     # (1) Require "CAR" and "COM" coords, other coords are optional
-    schema_dict["required"] = [ _ for _ in schema_dict["required"]  if _ not in ["COT", "EQU", "KEP"] ]
-    assert "CAR" in schema_dict["required"] and "COM" in schema_dict["required"]
+    schema_dict["required"] = [ "CAR" , "COM" ]
     return schema_dict
 
 def create_mpcorb_schema_from_defining_sample_json():

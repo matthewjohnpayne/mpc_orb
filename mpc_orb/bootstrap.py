@@ -18,7 +18,7 @@ from filepaths import filepath_dict
 
 
 # (1) Create "orbfit felfile" schema from defining sample(s)
-#     NB: This creates 2 kinds of schema file, one general and the second conversion-specific
+#     NB: This creates 2 kinds of schema file, (i) general and (ii) conversion-specific
 schema.create_orbfit_felfile_schema_from_defining_sample_json()
 
 
