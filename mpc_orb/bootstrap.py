@@ -24,17 +24,18 @@ schema.create_orbfit_felfile_schema_from_defining_sample_json()
 
 
 # (2) Convert "orbfit felfile" defining sample(s) to create defining "mpcorb" defining sample(s)
-filepaths = filepath_dict['orbfit_defining_sample']
-for fp in filepaths:
-    print(fp)
+for fp_in, fp_out in zip(   filepath_dict['orbfit_defining_sample'],
+                            filepath_dict['mpcorb_defining_sample']) :
+    print(fp_in, ' :->', fp_out)
+
     # Get the file contents
-    orbfit_dict,input_filepath = interpret.interpret(fp)
+    orbfit_dict,input_filepath = interpret.interpret(fp_in)
     # Validate (unnecessary)
     schema.validate_orbfit_conversion(orbfit_dict)
     # Convert to mpc_orb format
     mpcorb_format_dict = convert.std_format_els(orbfit_dict)
     # Save to file
-    schema.save_json(filepaths.schema_name_dict['mpcorb_defining_sample'], mpcorb_format_dict)
+    schema.save_json(fp_out, mpcorb_format_dict)
 
 
 # (3) Create "mpcorb" schema from defining sample(s)
