@@ -8,8 +8,8 @@ from os.path import join, dirname, abspath, isfile
 
 # local imports
 # -----------------------
-import interpret
 import schema
+import convert
 from filepaths import filepath_dict
 
 
