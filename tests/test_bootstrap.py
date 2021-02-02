@@ -1,6 +1,6 @@
 """
-Test related to mpc_orb-json
-(the standard export format)
+Test related to orbfit-json
+(the ones directly produced by M. Pan's wrapper, with the defining feature that all of the data are strings.)
 """
 
 # Local imports
@@ -18,35 +18,26 @@ import filepaths
 
 # Tests
 # -----------------------
-
-def test_create_mpcorb_schema_from_defining_sample_json_A():
-    """
-    This test is CRITICALLY IMPORTANT : It CREATES THE SCHEMA
-    """
+def test_create_orbfit_felfile_schema_from_defining_sample_json_A():
 
     # Assert that the schema file does NOT exist
-    assert not isfile( filepaths.schema_name_dict['mpcorb_schema']  )
+    assert not isfile( filepaths.schema_name_dict['orbfit_schema']  )
     
     # Assert that the required defining input file DOES exist
-    assert isfile( filepaths.schema_name_dict['mpcorb_defining_sample']  )
+    assert isfile( filepaths.schema_name_dict['orbfit_defining_sample']  )
 
     # Run the code to create the schema from the defining sample json
-    schema.create_mpcorb_schema_from_defining_sample_json()
+    schema.create_orbfit_felfile_schema_from_defining_sample_json()
 
     # Assert that the schema file exists
-    assert isfile( filepaths.schema_name_dict['mpcorb_schema']  )
+    assert isfile( filepaths.schema_name_dict['orbfit_schema']  )
 
 
 def test_validate_orbfit_A():
     """ Test that the defining sample passes validation (it really should!!!) """
 
-    # Assert that the schema file exists
-    assert isfile( filepaths.schema_name_dict['mpcorb_schema']  )
-
     # Input filepath
-    f = filepaths.schema_name_dict['mpcorb_defining_sample']
+    f = filepaths.schema_name_dict['orbfit_defining_sample']
         
     # Validate
-    schema.validate_standard( f )
-
-
+    schema.validate_orbfit( f )
