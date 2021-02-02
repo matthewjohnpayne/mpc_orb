@@ -39,4 +39,4 @@ for fp_in, fp_out in zip(   filepath_dict['orbfit_defining_sample'],
 
 
 # (3) Create "mpcorb" schema from defining sample(s)
-#schema.create_mpcorb_schema_from_defining_sample_json()
+schema.create_mpcorb_schema_from_defining_sample_json()
