@@ -10,6 +10,7 @@ from os.path import join, dirname, abspath, isfile
 # -----------------------
 import schema
 import convert
+import interpret
 from filepaths import filepath_dict
 
 
