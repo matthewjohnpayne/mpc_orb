@@ -21,7 +21,7 @@ except:
 # local imports
 # -----------------------
 import interpret
-from schema import validate_orbfit, validate_standard
+from schema import validate_orbfit_conversion, validate_mpcorb
 
 # Main code to run routine
 # -----------------------
@@ -32,13 +32,13 @@ def convert(orbfit_input , output_filepath = None ):
     orbfit_dict, input_filepath = interpret.interpret(orbfit_input)
 
     # check the input is valid
-    validate_orbfit(orbfit_dict)
+    validate_orbfit_conversion(orbfit_dict)
 
     # do the conversion (this is the heart of the routine)
     standard_format_dict = std_format_els(orbfit_dict)
 
     # check the result is valid
-    validate_standard(standard_format_dict)
+    validate_mpcorb(standard_format_dict)
     
     # save to file (if required)
     if input_filepath is not None or output_filepath is not None:
