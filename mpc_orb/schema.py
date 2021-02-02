@@ -152,10 +152,10 @@ def create_mpcorb_schema_from_defining_sample_json():
     """
 
     # load defining sample
-    sample_dict = load_json( filepath_dict['mpcorb_defining_sample'] )
+    list_of_sample_dicts = [load_json( _ ) for _ in filepath_dict['mpcorb_defining_sample'] ]
 
     # instantiate "builder" & use to convert json-dict to an (initial) schema
-    schema_dict = get_schema_from_builder(sample_dict)
+    schema_dict = get_schema_from_builder(list_of_sample_dicts)
 
     # do mpc_orb-specific modifications
     schema_dict = do_mpcorb_schema_mods(schema_dict)
@@ -167,4 +167,6 @@ def create_mpcorb_schema_from_defining_sample_json():
 
 def do_mpcorb_schema_mods(schema_dict):
     """ No schema mods currently implemented"""
+    # (1) Require "CAR" and "COM" coords, other coords are optional
+    schema_dict["required"] = [ "CAR" , "COM" ]
     return schema_dict
