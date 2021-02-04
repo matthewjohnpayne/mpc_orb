@@ -13,7 +13,7 @@ import os , sys
 # local imports
 # -----------------------
 import interpret
-from validate import validate_mpcorb
+from schema import validate_mpcorb
 
 
 class MPCORB():
@@ -83,7 +83,7 @@ class MPCORB():
     def _populate_coord_components(self,coord):
         """ populate various components for specific representation """
         if not hasattr(self,coord) :
-            pass 
+            pass
         # populate square CoV matricees
         
         
