@@ -15,7 +15,7 @@ sys.path.append(code_dir)
 
 import schema
 from filepaths import filepath_dict
-
+import bootstrap 
 
 # Tests
 # -----------------------
