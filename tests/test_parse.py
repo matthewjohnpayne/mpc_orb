@@ -78,6 +78,9 @@ def test_parse_D(  ):
         M = MPCORB(f)
         
         for k in ['COM','CAR']:
-            # list of added atttributes 
-            for attr in ['covariance_array', 'uncertainty']:
-                assert hasattr(M,attr)
+            
+            assert hasattr(M,k), f"M.__dict__.items() = {M.__dict__.items()}"
+
+            # list of added keys in coord dict ...
+            for key in ['covariance_array', 'uncertainty']:
+                assert key in M.__dict__[k][key],f"M.__dict__[k]={M.__dict__[k]}'
