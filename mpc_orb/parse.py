@@ -13,16 +13,15 @@ import os , sys
 # local imports
 # -----------------------
 import interpret
-from validate import validate_standard
+from validate import validate_mpcorb
 
 
 class MPCORB():
 
     def __init__(self, arg=None ):
         """ On init, if some argument is supplied, go ahead and parse ( & validate ) """
-    
-        # load validation schema
-        self.schema = self._get_validation_schema()
+        # initialize some to-be-populated variables
+        self.a = 2.0
         
         # process/parse any supplied json-dict
         if arg is not None:
@@ -42,7 +41,7 @@ class MPCORB():
         json_dict, input_filepath = interpret.interpret(arg)
         
         # validate supplied json-dict against schema
-        validate_standard(standard_format_dict)
+        validate_mpcorb(json_dict)
 
         # make available (recursively) all levels of json-info as class attributes
         self._recursive('mpcorb',json_dict)
@@ -50,10 +49,6 @@ class MPCORB():
         # provide other useful quantities as attributes
         self._add_various_attributes()
     
-            
-    def _validate(self, json_dict):
-        """ validate supplied json-dict against schema """
-        pass #validate(instance=json_dict, schema=self.schema)
 
 
     def _recursive(self,k,v):
