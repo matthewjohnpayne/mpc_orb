@@ -46,7 +46,7 @@ values_for_each_test   = [
                  marks=pytest.mark.xfail(reason='Expected fail, invalid file'))
 ]
 @pytest.mark.parametrize( names_of_variables , values_for_each_test )
-def test_validation_orbfit_general_A( dictionary_key_for_filepaths ):
+def test_validation_orbfit_convert_A( dictionary_key_for_filepaths ):
     '''
     Test the validation of CONVERT orbfit jsons (string version)
     These are a subset of orbfit_general
@@ -66,7 +66,7 @@ values_for_each_test   = [
                  marks=pytest.mark.xfail(reason='Expected fail, invalid file'))
 ]
 @pytest.mark.parametrize( names_of_variables , values_for_each_test )
-def test_validation_orbfit_general_A( dictionary_key_for_filepaths ):
+def test_validation_mpcorb_A( dictionary_key_for_filepaths ):
     '''
     Test the validation of MPCORB jsons (numerical jsons)
     '''
