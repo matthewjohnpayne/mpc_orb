@@ -65,6 +65,11 @@ def test_parse_C(  ):
         M = MPCORB(f)
         for k in ['COM','CAR','nongrav_data', 'system_data', 'designation_data', 'magnitude_data', 'epoch_data']:
             assert hasattr(M,k)
+            
+        # Check that coord type has expected keys in coord dict ...
+        for k in ['COM','CAR']:
+            for key in ['eigval', 'covariance', 'elements', 'element_order', 'numparams', 'rms  ']:
+                assert key in M.__dict__[k],f"M.__dict__[k]={M.__dict__[k]}"
 
 def test_parse_D(  ):
     '''
@@ -79,8 +84,9 @@ def test_parse_D(  ):
         
         for k in ['COM','CAR']:
             
+            # Check that coord type exists
             assert hasattr(M,k), f"M.__dict__.items() = {M.__dict__.items()}"
 
-            # list of added keys in coord dict ...
+            # Check that coord type has added keys in coord dict ...
             for key in ['covariance_array', 'uncertainty']:
-                assert key in M.__dict__[k][key],f"M.__dict__[k]={M.__dict__[k]}"
+                assert key in M.__dict__[k],f"M.__dict__[k]={M.__dict__[k]}"
