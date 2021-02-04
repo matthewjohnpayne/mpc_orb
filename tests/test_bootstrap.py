@@ -27,9 +27,9 @@ def test_bootstrap_A():
 
     # Assert that the required defining input files exist
     assert len(filepath_dict['orbfit_defining_sample']) > 5 ,\
-        'Insufficient files: {filepath_dict['orbfit_defining_sample']}'
+        f'Insufficient files: {filepath_dict["orbfit_defining_sample"]}'
     for f in filepath_dict['orbfit_defining_sample']:
-        assert isfile( f ), 'file {f} does not exist'
+        assert isfile( f ), f'file {f} does not exist'
     
     # Explicitly delete any of the schema files and/or "numerical conversion" files ...
     # that have previously been generated from the above defining samples
@@ -46,7 +46,7 @@ def test_bootstrap_A():
 
     # Assert that the required files now exist
     for f in filepath_dict['mpcorb_defining_sample']:
-        assert isfile(f) , '{f} does not exist'
+        assert isfile(f) , f'{f} does not exist'
     for f in ['orbfit_general_schema','orbfit_conversion_schema', 'mpcorb_schema']:
-        assert isfile(filepath_dict[f]), '{filepath_dict[f]} does not exist'
+        assert isfile(filepath_dict[f]), f'{filepath_dict[f]} does not exist'
 
