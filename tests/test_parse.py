@@ -63,6 +63,6 @@ def test_parse_C(  ):
     # Attempt to instantiate using each ...
     for f in filepath_dict['mpcorb_defining_sample'][:1]:
         M = MPCORB(f)
-        print(M.__dict__)
+        for k,v in M.__dict__.items():print(k,v)
         assert False
 
