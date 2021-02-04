@@ -44,7 +44,7 @@ class MPCORB():
         validate_mpcorb(json_dict)
 
         # make top-level quantities available as object attributes
-        for k,v in json_dict: self.__dict__[k] = v 
+        for k,v in json_dict.items(): self.__dict__[k] = v 
         
         # provide other useful quantities as attributes
         self._add_various_attributes()
