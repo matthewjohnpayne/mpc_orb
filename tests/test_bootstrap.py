@@ -5,7 +5,7 @@ Test related to orbfit-json
 
 # Local imports
 # -----------------------
-from os.path import join, dirname, abspath, isfile,
+from os.path import join, dirname, abspath, isfile, remove
 
 import sys
 pack_dir  = dirname(dirname(abspath(__file__))) # Package directory
@@ -34,14 +34,14 @@ def test_bootstrap_A():
     # Explicitly delete any of the schema files and/or "numerical conversion" files ...
     # that have previously been generated from the above defining samples
     for f in filepath_dict['mpcorb_defining_sample']:
-        os.path.remove(f)
+        remove(f)
     for f in ['orbfit_general_schema','orbfit_conversion_schema', 'mpcorb_schema']:
-        os.path.remove(filepath_dict[f])
+        remove(filepath_dict[f])
 
     # Run the bootstap code to create ...
-    # orbfit schema
-    # converted files (str -to- num) to act as defining mpcorb files
-    # mpcorb schema
+    # ...orbfit schema
+    # ...converted files (str -to- num) to act as defining mpcorb files
+    # ...mpcorb schema
     bootstrap.bootstrap()
 
     # Assert that the required files now exist
