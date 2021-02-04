@@ -24,7 +24,8 @@ def interpret(arg):
         input_filepath  = None
     # no other options yet implemented
     else:
-        raise  Exception("Input {arg}\nis of type {type(arg)} and cannot be interpreted as json-dict")
+        print(f"Input {arg}\nis of type {type(arg)} and cannot be interpreted as json-dict")
+        raise  Exception(f"Input {arg}\nis of type {type(arg)} and cannot be interpreted as json-dict")
     
     # return the contents of the json file in dict form
     return json_dict,input_filepath
