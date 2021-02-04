@@ -43,14 +43,16 @@ class MPCORB():
         # validate supplied json-dict against schema
         validate_mpcorb(json_dict)
 
-        # make available (recursively) all levels of json-info as class attributes
-        self._recursive('mpcorb',json_dict)
+        # make top-level quantities available as object attributes
+        for k,v in json_dict: self.__dict__[k] = v 
         
         # provide other useful quantities as attributes
         self._add_various_attributes()
     
 
 
+    '''
+    *** TOO CLEVER : NOT SURE IF USEFUL ***
     def _recursive(self,k,v):
         """
         Add all levels of supplied json-dict data as class attributes
@@ -64,7 +66,8 @@ class MPCORB():
         if isinstance(v, dict):
             for k,_ in v.items():
                 self._recursive(k,_)
-        
+    '''
+    
     def _add_various_attributes(self,):
         """
         provide other useful quantities as attributes
