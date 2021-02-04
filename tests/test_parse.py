@@ -29,13 +29,28 @@ values_for_each_test   = [
 ]
 @pytest.mark.parametrize( names_of_variables , values_for_each_test )
 """
+
 def test_parse_A(  ):
     '''
-    Test the parsing of mpcorb jsons
+    Test the parsing of mpcorb-jsons ...
+    Instantiate empty
     '''
   
     M = MPCORB()
     
     assert isinstance(M,MPCORB)
-    assert hasattr(M,'a')
+
+def test_parse_B(  ):
+    '''
+    Test the parsing of mpcorb-jsons ...
+    Instantiate with file
+
+    '''
+  
+    # Loop over the defining mpcorb files
+    # Attempt to instantiate using each ...
+    for f in filepath_dict['mpcorb_defining_sample']:
+        M = MPCORB(f)
+        
+        assert isinstance(M,MPCORB)
 
