@@ -68,7 +68,7 @@ def test_parse_C(  ):
             
         # Check that coord type has expected keys in coord dict ...
         for k in ['COM','CAR']:
-            for key in ['eigval', 'covariance', 'elements', 'element_order', 'numparams', 'rms ']:
+            for key in ['eigval', 'covariance', 'elements', 'element_order', 'numparams', 'rms']:
                 assert key in M.__dict__[k],f"M.__dict__[k]={M.__dict__[k]}"
 
 def test_parse_D(  ):
