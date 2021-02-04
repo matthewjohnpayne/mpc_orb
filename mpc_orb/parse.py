@@ -75,23 +75,33 @@ class MPCORB():
         """
         
         # These coord-types are both required in a valid input json
-        for coord in ["COM", "CAR"]:
-            self._populate_coord_components(coord)
+        for coord_attr in ["COM", "CAR"]:
+            self._populate_coord_components(coord_attr)
             
         # Is there some other stuff we want to provide as convenient attributes?
         # - astropy time object ?
-        # -
+        # - ... ?
         
         
-    def _populate_coord_components(self,coord):
+    def _populate_coord_components(self,coord_attr):
         """ populate various components for specific representation """
-        if not hasattr(self,coord) :
-            pass
+        
         # populate square CoV matricees
-        
-        
-        # provide state/ele
-        
+        self.__dict__[coord_attr]['covariance_array'] = _generate_square_CoV( coord_attr )
+                
         # provide uncertainty (CoV diag)
-
+        self.__dict__[coord_attr]['uncertainty'] = _generate_uncertainty( coord_attr )
     
+    def _generate_square_CoV(self, coord_attr ):
+        """ populate square array from ttriangular elements """
+        num_params       = self.__dict__[coord_attr]['numparams']
+        covariance_array = np.array( [num_params,num_params] )
+        
+        for i in range(num_params):
+            for j in range(i,num_params):
+                covariance_array[i,j] = covariance_array[j,i] = covariance_dict['cov%d%d' % (i,j)]
+                
+        return covariance_array
+
+    def _generate_uncertainty(self, coord_attr ):
+        return np.sqrt( self.__dict__[coord_attr]['covariance_array'].diagonal() )

@@ -65,3 +65,19 @@ def test_parse_C(  ):
         M = MPCORB(f)
         for k in ['COM','CAR','nongrav_data', 'system_data', 'designation_data', 'magnitude_data', 'epoch_data']:
             assert hasattr(M,k)
+
+def test_parse_D(  ):
+    '''
+    Test the parsing of mpcorb-jsons ...
+    Check added attributes
+    '''
+  
+    # Loop over the defining mpcorb files
+    # Attempt to instantiate using each ...
+    for f in filepath_dict['mpcorb_defining_sample'][:1]:
+        M = MPCORB(f)
+        
+        for k in ['COM','CAR']:
+            # list of added atttributes 
+            for attr in ['covariance_array', 'uncertainty']:
+                assert hasattr(M,attr)
