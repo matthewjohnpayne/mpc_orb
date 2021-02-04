@@ -83,4 +83,4 @@ def test_parse_D(  ):
 
             # list of added keys in coord dict ...
             for key in ['covariance_array', 'uncertainty']:
-                assert key in M.__dict__[k][key],f"M.__dict__[k]={M.__dict__[k]}'
+                assert key in M.__dict__[k][key],f"M.__dict__[k]={M.__dict__[k]}"
