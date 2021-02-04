@@ -9,6 +9,7 @@ from jsonschema import validate
 from os.path import join, dirname, abspath
 import glob
 import os , sys
+import numpy as np 
 
 # local imports
 # -----------------------
