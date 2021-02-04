@@ -35,4 +35,7 @@ def test_parse_A(  ):
     '''
   
     M = MPCORB()
+    
+    assert isinstance(M,MPCORB)
+    assert hasattr(M,'a')
 
