@@ -17,35 +17,20 @@ import filepaths
 
 # Tests
 # -----------------------
-def test_validation_orbfit_general_A():
+@pytest.mark.parametrize(
+    names_of_variables     = ('dictionary_key_for_filepaths')
+    values_for_each_test   = [
+        ('test_pass_orbfit_general'),
+        pytest.param('test_fail_orbfit_general',
+                     marks=pytest.mark.xfail(reason='Expected fail" invalid file'))
+                     ]
+)
+def test_validation_orbfit_general_A( dictionary_key_for_filepaths ):
     '''
-    Test the "bootstrap" routine that takes us from zero-to-hero
-    I.e. the bootstrap function starts from some defining orbfit jsons (str-format)
-    and takes us all the way to having the three desired sets of json schema
+    Test the validation of general orbfit jsons (string version)
+    These may or may not be suitable for conversion to mpcorb (those are tested separately)
     '''
-
-    # Assert that the required defining input files exist
-    assert len(filepath_dict['orbfit_defining_sample']) > 5 ,\
-        'Insufficient files: {filepath_dict['orbfit_defining_sample']}'
-    for f in filepath_dict['orbfit_defining_sample']:
-        assert isfile( f ), 'file {f} does not exist'
-    
-    # Explicitly delete any of the schema files and/or "numerical conversion" files ...
-    # that have previously been generated from the above defining samples
-    for f in filepath_dict['mpcorb_defining_sample']:
-        os.path.remove(f)
-    for f in ['orbfit_general_schema','orbfit_conversion_schema', 'mpcorb_schema']:
-        os.path.remove(filepath_dict[f])
-
-    # Run the bootstap code to create ...
-    # orbfit schema
-    # converted files (str -to- num) to act as defining mpcorb files
-    # mpcorb schema
-    bootstrap.bootstrap()
-
-    # Assert that the required files now exist
-    for f in filepath_dict['mpcorb_defining_sample']:
-        assert isfile(f) , '{f} does not exist'
-    for f in ['orbfit_general_schema','orbfit_conversion_schema', 'mpcorb_schema']:
-        assert isfile(filepath_dict[f]), '{filepath_dict[f]} does not exist'
+  
+    for f in filepath_dict['test_pass_orbfit_general']:
+        schema.validate_orbfit_general(f)
 
