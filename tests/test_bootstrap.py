@@ -5,7 +5,8 @@ Test related to orbfit-json
 
 # Local imports
 # -----------------------
-from os.path import join, dirname, abspath, isfile, remove
+from os.path import join, dirname, abspath, isfile
+from os import remove
 
 import sys
 pack_dir  = dirname(dirname(abspath(__file__))) # Package directory
