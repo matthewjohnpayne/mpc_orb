@@ -83,7 +83,7 @@ class MPCORB():
     def _populate_coord_components(self,coord):
         """ populate various components for specific representation """
         if not hasattr(self,coord) :
-            
+            pass 
         # populate square CoV matricees
         
         
@@ -92,9 +92,3 @@ class MPCORB():
         # provide uncertainty (CoV diag)
 
     
-    
-#if __name__ == __main__ :
-#    MPCORB(sys.argv[1])
-
-
-
