@@ -12,19 +12,18 @@ code_dir  = join(pack_dir, 'mpc_orb')
 sys.path.append(code_dir)
 
 import schema
-import filepaths
+from filepaths import filepath_dict
 
 
 # Tests
 # -----------------------
-@pytest.mark.parametrize(
-    names_of_variables     = ('dictionary_key_for_filepaths')
-    values_for_each_test   = [
-        ('test_pass_orbfit_general'),
-        pytest.param('test_fail_orbfit_general',
-                     marks=pytest.mark.xfail(reason='Expected fail" invalid file'))
-                     ]
-)
+names_of_variables     = ('dictionary_key_for_filepaths')
+values_for_each_test   = [
+    ('test_pass_orbfit_general'),
+    pytest.param('test_fail_orbfit_general',
+                 marks=pytest.mark.xfail(reason='Expected fail" invalid file'))
+]
+@pytest.mark.parametrize( names_of_variables , values_for_each_test )
 def test_validation_orbfit_general_A( dictionary_key_for_filepaths ):
     '''
     Test the validation of general orbfit jsons (string version)
