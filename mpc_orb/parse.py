@@ -97,7 +97,7 @@ class MPCORB():
         """ populate square array from ttriangular elements """
         num_params       = self.__dict__[coord_attr]['numparams']
         covariance_array = np.array( [num_params,num_params] )
-        
+        print('num_params',num_params, 'covariance_array.shape', covariance_array.shape())
         for i in range(num_params):
             for j in range(i,num_params):
                 covariance_array[i,j] = covariance_array[j,i] = self.__dict__[coord_attr]['covariance']['cov%d%d' % (i,j)]
