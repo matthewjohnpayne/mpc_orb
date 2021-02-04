@@ -41,6 +41,7 @@ def test_bootstrap_A():
     for f in filepath_dict['mpcorb_defining_sample']:
         if isfile(f) : remove(f)
     for f in ['orbfit_general_schema','orbfit_conversion_schema', 'mpcorb_schema']:
+        print('removing : ', f)
         if isfile(f) : remove(filepath_dict[f])
 
     # Run the bootstap code to create ...
