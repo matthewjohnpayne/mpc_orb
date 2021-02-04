@@ -94,7 +94,8 @@ class MPCORB():
         self.__dict__[coord_attr]['uncertainty'] = self._generate_uncertainty( coord_attr )
     
     def _generate_square_CoV(self, coord_attr ):
-        """ populate square array from ttriangular elements """
+        """ populate square array from triangular elements """
+        print('self.__dict__[coord_attr]=\n', self.__dict__[coord_attr])
         num_params       = self.__dict__[coord_attr]['numparams']
         covariance_array = np.empty( [num_params,num_params] )
         print('num_params',num_params, 'covariance_array.shape', covariance_array.shape )
