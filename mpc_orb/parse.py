@@ -87,10 +87,10 @@ class MPCORB():
         """ populate various components for specific representation """
         
         # populate square CoV matricees
-        self.__dict__[coord_attr]['covariance_array'] = _generate_square_CoV( coord_attr )
+        self.__dict__[coord_attr]['covariance_array'] = self._generate_square_CoV( coord_attr )
                 
         # provide uncertainty (CoV diag)
-        self.__dict__[coord_attr]['uncertainty'] = _generate_uncertainty( coord_attr )
+        self.__dict__[coord_attr]['uncertainty'] = self._generate_uncertainty( coord_attr )
     
     def _generate_square_CoV(self, coord_attr ):
         """ populate square array from ttriangular elements """
