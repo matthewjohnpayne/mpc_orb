@@ -44,7 +44,6 @@ def test_parse_B(  ):
     '''
     Test the parsing of mpcorb-jsons ...
     Instantiate with file
-
     '''
   
     # Loop over the defining mpcorb files
@@ -53,4 +52,17 @@ def test_parse_B(  ):
         M = MPCORB(f)
         
         assert isinstance(M,MPCORB)
+
+def test_parse_C(  ):
+    '''
+    Test the parsing of mpcorb-jsons ...
+    Check basic attributes
+    '''
+  
+    # Loop over the defining mpcorb files
+    # Attempt to instantiate using each ...
+    for f in filepath_dict['mpcorb_defining_sample'][:1]:
+        M = MPCORB(f)
+        print(M.__dict__)
+        assert False
 
