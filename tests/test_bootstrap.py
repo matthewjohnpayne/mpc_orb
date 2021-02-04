@@ -15,7 +15,7 @@ sys.path.append(code_dir)
 
 import schema
 from filepaths import filepath_dict
-import bootstrap 
+import bootstrap
 
 # Tests
 # -----------------------
@@ -35,9 +35,9 @@ def test_bootstrap_A():
     # Explicitly delete any of the schema files and/or "numerical conversion" files ...
     # that have previously been generated from the above defining samples
     for f in filepath_dict['mpcorb_defining_sample']:
-        remove(f)
+        if isfile(f) : remove(f)
     for f in ['orbfit_general_schema','orbfit_conversion_schema', 'mpcorb_schema']:
-        remove(filepath_dict[f])
+        if isfile(f) : remove(filepath_dict[f])
 
     # Run the bootstap code to create ...
     # ...orbfit schema
