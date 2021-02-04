@@ -25,7 +25,7 @@ orbfit_defining_files_convert.extend(glob.glob( def_con_dir + "/*orig.json" ))
 filepath_dict = {
     'orbfit_defining_sample_general'    : orbfit_defining_files_general,
     'orbfit_defining_sample_convert'    : orbfit_defining_files_convert,
-    'mpcorb_defining_sample'    : [_[:_.rfind("_")+1]+"num.json" for _ in orbfit_defining_files],
+    'mpcorb_defining_sample'    : [_[:_.rfind("_")+1]+"num.json" for _ in orbfit_defining_files_convert],
     
     'orbfit_general_schema'     : join(sch_dir, 'orbfit_general_schema.json'),
     'orbfit_conversion_schema'  : join(sch_dir, 'orbfit_conversion_schema.json'),
