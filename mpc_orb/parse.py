@@ -9,7 +9,7 @@ from jsonschema import validate
 from os.path import join, dirname, abspath
 import glob
 import os , sys
-import numpy as np 
+import numpy as np
 
 # local imports
 # -----------------------
@@ -100,7 +100,7 @@ class MPCORB():
         
         for i in range(num_params):
             for j in range(i,num_params):
-                covariance_array[i,j] = covariance_array[j,i] = covariance_dict['cov%d%d' % (i,j)]
+                covariance_array[i,j] = covariance_array[j,i] = self.__dict__[coord_attr]['covariance']['cov%d%d' % (i,j)]
                 
         return covariance_array
 
