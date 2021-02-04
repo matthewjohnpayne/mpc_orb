@@ -117,18 +117,20 @@ def create_orbfit_felfile_schema_from_defining_sample_json():
     """
 
     # load defining sample
-    list_of_sample_dicts = [load_json( _ ) for _ in filepath_dict['orbfit_defining_sample'] ]
+    list_of_sample_dicts_general = [load_json( _ ) for _ in filepath_dict['orbfit_defining_sample_general'] ]
+    list_of_sample_dicts_convert = [load_json( _ ) for _ in filepath_dict['orbfit_defining_sample_convert'] ]
 
     # instantiate "builder" & use to convert json-dict to an (initial) schema
-    schema_dict = get_schema_from_builder(list_of_sample_dicts)
-    
+    schema_dict_general = get_schema_from_builder(list_of_sample_dicts_general)
+    schema_dict_convert = get_schema_from_builder(list_of_sample_dicts_convert)
+
     # do orbfit-specific modifications
-    general_schema_dict     = do_orbfit_general_schema_mods(schema_dict)
-    conversion_schema_dict  = do_orbfit_conversion_schema_mods(schema_dict)
+    schema_dict_general     = do_orbfit_general_schema_mods(schema_dict_general)
+    schema_dict_convert  = do_orbfit_conversion_schema_mods(schema_dict_convert)
 
     # Save schema-dict to file
-    save_json( filepath_dict['orbfit_general_schema'] ,    schema_dict )
-    save_json( filepath_dict['orbfit_conversion_schema'] , schema_dict )
+    save_json( filepath_dict['orbfit_general_schema'] ,    schema_dict_general )
+    save_json( filepath_dict['orbfit_conversion_schema'] , schema_dict_convert )
 
     return True
 

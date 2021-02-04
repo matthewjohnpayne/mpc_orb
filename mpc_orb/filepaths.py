@@ -10,16 +10,21 @@ from os.path import join, dirname, abspath
 # filepaths
 # -----------------------
 pack_dir  = dirname(dirname(abspath(__file__))) # Package directory
-def_dir  = join(pack_dir, 'defining_sample_json')
+def_gen_dir  = join(pack_dir, 'defining_sample_json/general')
+def_con_dir  = join(pack_dir, 'defining_sample_json/convert')
 sch_dir  = join(pack_dir, 'schema_json')
 tst_dir  = join(pack_dir, 'test_jsons')
 
-# start with defining felfiles ...
-orbfit_defining_files      = glob.glob( def_dir + "/*str.json" )
-orbfit_defining_files.extend(glob.glob( def_dir + "/*orig.json" ))
+# start with the defining felfiles for orbfit (string) jsons ...
+orbfit_defining_files_general      = glob.glob( def_gen_dir + "/*str.json" )
+orbfit_defining_files_general.extend(glob.glob( def_gen_dir + "/*orig.json" ))
+orbfit_defining_files_convert      = glob.glob( def_con_dir + "/*str.json" )
+orbfit_defining_files_convert.extend(glob.glob( def_con_dir + "/*orig.json" ))
 
+# Put everything into a dictionary ...
 filepath_dict = {
-    'orbfit_defining_sample'    : orbfit_defining_files,
+    'orbfit_defining_sample_general'    : orbfit_defining_files_general,
+    'orbfit_defining_sample_convert'    : orbfit_defining_files_convert,
     'mpcorb_defining_sample'    : [_[:_.rfind("_")+1]+"num.json" for _ in orbfit_defining_files],
     
     'orbfit_general_schema'     : join(sch_dir, 'orbfit_general_schema.json'),

@@ -34,7 +34,7 @@ def bootstrap():
 
 
     # (2) Convert "orbfit felfile" defining sample(s) to create defining "mpcorb" defining sample(s)
-    for fp_in, fp_out in zip(   filepath_dict['orbfit_defining_sample'],
+    for fp_in, fp_out in zip(   filepath_dict['orbfit_defining_sample_convert'],
                                 filepath_dict['mpcorb_defining_sample']) :
         print(fp_in, ' :->', fp_out)
 
