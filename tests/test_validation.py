@@ -1,6 +1,9 @@
 """
 Test validation schema
 """
+# Third-party imports
+# -----------------------
+import pytest
 
 # Local imports
 # -----------------------
