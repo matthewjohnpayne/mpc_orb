@@ -63,9 +63,5 @@ def test_parse_C(  ):
     # Attempt to instantiate using each ...
     for f in filepath_dict['mpcorb_defining_sample'][:1]:
         M = MPCORB(f)
-        for k in ['COM','CAR','nongrav_data']:
+        for k in ['COM','CAR','nongrav_data', 'system_data', 'designation_data', 'magnitude_data', 'epoch_data']:
             assert hasattr(M,k)
-
-        for k,v in M.__dict__.items():print(k,v)
-        assert False
-

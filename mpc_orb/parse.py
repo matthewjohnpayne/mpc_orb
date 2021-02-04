@@ -21,7 +21,7 @@ class MPCORB():
     def __init__(self, arg=None ):
         """ On init, if some argument is supplied, go ahead and parse ( & validate ) """
         # initialize some to-be-populated variables
-        self.a = 2.0
+        
         
         # process/parse any supplied json-dict
         if arg is not None:
@@ -44,7 +44,7 @@ class MPCORB():
         validate_mpcorb(json_dict)
 
         # make top-level quantities available as object attributes
-        for k,v in json_dict.items(): self.__dict__[k] = v 
+        for k,v in json_dict.items(): self.__dict__[k] = v
         
         # provide other useful quantities as attributes
         self._add_various_attributes()
