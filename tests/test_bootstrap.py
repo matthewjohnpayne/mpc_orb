@@ -27,9 +27,13 @@ def test_bootstrap_A():
     '''
 
     # Assert that the required defining input files exist
-    assert len(filepath_dict['orbfit_defining_sample']) > 5 ,\
-        f'Insufficient files: {filepath_dict["orbfit_defining_sample"]}'
-    for f in filepath_dict['orbfit_defining_sample']:
+    assert len(filepath_dict['orbfit_defining_sample_general']) >= 5 ,\
+        f'Insufficient files: {filepath_dict["orbfit_defining_sample_general"]}'
+    assert len(filepath_dict['orbfit_defining_sample_convert']) >= 5 ,\
+        f'Insufficient files: {filepath_dict["orbfit_defining_sample_convert"]}'
+    for f in filepath_dict['orbfit_defining_sample_general']:
+        assert isfile( f ), f'file {f} does not exist'
+    for f in filepath_dict['orbfit_defining_sample_convert']:
         assert isfile( f ), f'file {f} does not exist'
     
     # Explicitly delete any of the schema files and/or "numerical conversion" files ...
