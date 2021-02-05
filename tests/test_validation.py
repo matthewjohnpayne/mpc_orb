@@ -71,6 +71,6 @@ def test_validation_mpcorb_A( dictionary_key_for_filepaths ):
     '''
   
     for f in filepath_dict[dictionary_key_for_filepaths]:
-        schema.validate_orbfit_general(f)
+        schema.validate_mpcorb(f)
 
 
