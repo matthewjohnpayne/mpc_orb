@@ -79,9 +79,30 @@ class MPCORB():
         for coord_attr in ["COM", "CAR"]:
             self._populate_coord_components(coord_attr)
             
+        # convenience method return data to be passed into mpc-integrator
+        self._populate_integrator_data()
+        
         # Is there some other stuff we want to provide as convenient attributes?
         # - astropy time object ?
         # - ... ?
+        
+    def _populate_integrator_data(self,):
+        """
+        Rebound-Ephem Integrator wants certain standard inputs
+        This function drags together the parts of the data required from the mpcorb-json ...
+        and combines it into a single convenient ... dict?
+        
+        https://github.com/matthewholman/reboundx/blob/holman/examples/ephem_forces/ephem_forces.py
+        def integration_function(tstart, tstep, trange,
+                         geocentric,
+                         n_particles,
+                         instate_arr,
+                         n_var,
+                         invar_part,
+                         invar,
+                         epsilon = 1e-8)
+        """
+        pass
         
         
     def _populate_coord_components(self,coord_attr):
@@ -89,7 +110,10 @@ class MPCORB():
         
         # populate square CoV matricees
         self.__dict__[coord_attr]['covariance_array'] = self._generate_square_CoV( coord_attr )
-                
+
+        # populate element array
+        self.__dict__[coord_attr]['element_array'] = self._generate_element_array( coord_attr )
+
         # provide uncertainty (CoV diag)
         self.__dict__[coord_attr]['uncertainty'] = self._generate_uncertainty( coord_attr )
     
@@ -104,5 +128,10 @@ class MPCORB():
                 
         return covariance_array
 
+    def _generate_element_array( coord_attr ):
+        """ turn element dict into numpy array (with fixed ordering) """
+        return np.array( [ self.__dict__[coord_attr]['elements'][key] for key in self.__dict__[coord_attr]['element_order']] )
+        
     def _generate_uncertainty(self, coord_attr ):
+        """ extract sqrt of diag elements in CoV-arry as uncertainty array """ 
         return np.sqrt( self.__dict__[coord_attr]['covariance_array'].diagonal() )
