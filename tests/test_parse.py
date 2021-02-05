@@ -79,5 +79,5 @@ def test_parse_D(  ):
             assert hasattr(M,k), f"M.__dict__.items() = {M.__dict__.items()}"
 
             # Check that coord type has added keys in coord dict ...
-            for key in ['covariance_array', 'uncertainty']:
+            for key in ['covariance_array', 'element_array', 'uncertainty']:
                 assert key in M.__dict__[k],f"M.__dict__[k]={M.__dict__[k]}"

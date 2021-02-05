@@ -128,7 +128,7 @@ class MPCORB():
                 
         return covariance_array
 
-    def _generate_element_array( coord_attr ):
+    def _generate_element_array(self,  coord_attr ):
         """ turn element dict into numpy array (with fixed ordering) """
         return np.array( [ self.__dict__[coord_attr]['elements'][key] for key in self.__dict__[coord_attr]['element_order']] )
         
