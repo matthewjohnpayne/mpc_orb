@@ -13,7 +13,10 @@ from parse import MPCORB
 
 ### Define a filepath to an example json file in the mpcorb format
 import glob
+print('pack_dir=',pack_dir)
 jsn_dir  = join(pack_dir, 'test_jsons', 'pass_mpcorb')
+print('jsn_dir=',jsn_dir)
+print('glob=',glob.glob(jsn_dir + '/*json'))
 filepath = glob.glob(jsn_dir + '/*json')[0]
 print(filepath)
 
