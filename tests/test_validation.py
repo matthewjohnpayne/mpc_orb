@@ -38,7 +38,6 @@ def test_validation_orbfit_general_A( dictionary_key_for_filepaths ):
 
 
 
-"""
 names_of_variables     = ('dictionary_key_for_filepaths')
 values_for_each_test   = [
     ('test_pass_orbfit_convert'),
@@ -58,6 +57,7 @@ def test_validation_orbfit_convert_A( dictionary_key_for_filepaths ):
 
 
 
+"""
 
 names_of_variables     = ('dictionary_key_for_filepaths')
 values_for_each_test   = [
