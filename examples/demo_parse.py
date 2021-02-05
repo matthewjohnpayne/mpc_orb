@@ -13,12 +13,9 @@ from parse import MPCORB
 
 ### Define a filepath to an example json file in the mpcorb format
 import glob
-print('pack_dir=',pack_dir)
 jsn_dir  = join(pack_dir, 'test_jsons', 'pass_mpcorb')
-print('jsn_dir=',jsn_dir)
-print('glob=',glob.glob(jsn_dir + '/*json'))
 filepath = glob.glob(jsn_dir + '/*json')[0]
-print(filepath)
+print('filepath=\n', filepath)
 
 
 
@@ -27,9 +24,11 @@ print(filepath)
 M = MPCORB(filepath)
 
 # Demonstrate the available variables
+print('\n Top level variables in MPCORB dictionary ... ')
 for k,v in M.__dict__.items():
     print(k,v)
 
 # Demonstrate the key-value pairs available in the "COM" coordinate dictionary
+print('\n Variables in COM dictionary ... ')
 for k,v in M.COM.items():
     print(k,v)
