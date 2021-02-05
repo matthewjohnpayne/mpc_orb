@@ -57,7 +57,6 @@ def test_validation_orbfit_convert_A( dictionary_key_for_filepaths ):
 
 
 
-"""
 
 names_of_variables     = ('dictionary_key_for_filepaths')
 values_for_each_test   = [
@@ -74,4 +73,4 @@ def test_validation_mpcorb_A( dictionary_key_for_filepaths ):
     for f in filepath_dict[dictionary_key_for_filepaths]:
         schema.validate_orbfit_general(f)
 
-"""
+
