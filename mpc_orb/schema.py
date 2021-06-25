@@ -1,4 +1,10 @@
 """
+mpc_orb/schema.py
+ - Code to *create* the required three types of schema file using supplied defining json-files
+ - Code to *validate* a candidate json-file against a schema file
+
+Author(s)
+MJP
 """
 
 # Import third-party packages
@@ -125,7 +131,7 @@ def create_orbfit_felfile_schema_from_defining_sample_json():
     schema_dict_convert = get_schema_from_builder(list_of_sample_dicts_convert)
 
     # do orbfit-specific modifications
-    schema_dict_general     = do_orbfit_general_schema_mods(schema_dict_general)
+    schema_dict_general  = do_orbfit_general_schema_mods(schema_dict_general)
     schema_dict_convert  = do_orbfit_conversion_schema_mods(schema_dict_convert)
 
     # Save schema-dict to file
@@ -135,11 +141,17 @@ def create_orbfit_felfile_schema_from_defining_sample_json():
     return True
 
 def do_orbfit_general_schema_mods(schema_dict):
-    """ No schema mods currently implemented"""
+    """
+    No schema mods currently implemented
+    Additional modifications likely to be required to refine the definition/schema
+    """
     return schema_dict
 
 def do_orbfit_conversion_schema_mods(schema_dict):
-    """ No schema mods currently implemented"""
+    """
+    Minimal schema mods currently implemented
+    Additional modifications likely to be required to refine the definition/schema
+    """
     
     # (1) Require "CAR" and "COM" coords, other coords are optional
     schema_dict["required"] = [ "CAR" , "COM" ]
@@ -168,7 +180,10 @@ def create_mpcorb_schema_from_defining_sample_json():
     return True
 
 def do_mpcorb_schema_mods(schema_dict):
-    """ No schema mods currently implemented"""
+    """
+    Minimal schema mods currently implemented
+    Additional modifications likely to be required to refine the definition/schema
+    """
     # (1) Require "CAR" and "COM" coords, other coords are optional
     schema_dict["required"] = [ "CAR" , "COM" ]
     return schema_dict

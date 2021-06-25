@@ -30,7 +30,7 @@ values_for_each_test   = [
 def test_validation_orbfit_general_A( dictionary_key_for_filepaths ):
     '''
     Test the validation of GENERAL orbfit jsons (string version)
-    These may or may not be suitable for conversion to mpcorb (those are tested separately)
+    These may or may not be suitable for conversion to mpcorb (files for conversion to mpcorb are tested separately)
     '''
   
     for f in filepath_dict[dictionary_key_for_filepaths]:
@@ -52,7 +52,7 @@ def test_validation_orbfit_convert_A( dictionary_key_for_filepaths ):
     '''
   
     for f in filepath_dict[dictionary_key_for_filepaths]:
-        schema.validate_orbfit_general(f)
+        schema.validate_orbfit_conversion(f)
 
 
 

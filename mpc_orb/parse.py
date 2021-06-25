@@ -1,5 +1,12 @@
 """
-Code to parse an mpc_orb json file
+mpc_orb/parse.py
+ - Code to parse an mpc_orb json file
+ - Expected to be used frequently to read the contents of an mpc_orb.json
+ - Expected to be of use to the external community as well as to the MPC
+ - ***THIS CODE IS STILL BEING DEVELOPED***
+
+Author(s)
+This module: MJP
 """
 
 # Third party imports
@@ -30,15 +37,19 @@ class MPCORB():
             
     def parse(self, arg):
         """
-        make available all levels of json-dict data as class attributes
-        E.g. if json_dict contains
-        { ... , key1: { key2:{ key5:True, key6:False }, key3:[], key4:None}, ... }
-        then all keys 1-6 will be available as attributes, with ...
-        ... key1 & key2 having associated dictionary ,
-        ... key3 having an associated list value,
-        ... key4, key5 & key6 having single (non-iterable) values
+        Parse the supplied argument and make various components of the
+        input mpc_orb-dictionary available as attributes of this MPCORB object
+        
+        inputs:
+        -------
+        arg: dictionary or json-filepath
+        
+        action:
+        --------
+        populates MPCORB attributes
+        
         """
-        # interpret argument  allow filepaths as well as dicts as input)
+        # interpret argument to allow filepaths as well as dicts as input)
         json_dict, input_filepath = interpret.interpret(arg)
         
         # validate supplied json-dict against schema
@@ -57,7 +68,15 @@ class MPCORB():
     def _recursive(self,k,v):
         """
         Add all levels of supplied json-dict data as class attributes
+        E.g. if json_dict contains
+        { ... , key1: { key2:{ key5:True, key6:False }, key3:[], key4:None}, ... }
+        then all keys 1-6 will be available as attributes, with ...
+        ... key1 & key2 having associated dictionary ,
+        ... key3 having an associated list value,
+        ... key4, key5 & key6 having single (non-iterable) values
+
         NB: Doing this requires unique "keys" across all dictionaries
+
         """
 
         # Add this attribute to the instance
@@ -75,7 +94,7 @@ class MPCORB():
         assumes *parse* has been run
         """
         
-        # These coord-types are both required in a valid input json
+        # These coord-types are both required in a valid input mpc_orb.json
         for coord_attr in ["COM", "CAR"]:
             self._populate_coord_components(coord_attr)
             

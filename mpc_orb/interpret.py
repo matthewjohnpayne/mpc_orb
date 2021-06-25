@@ -1,3 +1,9 @@
+"""
+mpc_orb/interpret.py
+A convenience func to interpret an input argument as some kind of json-related input
+I.e. looks to see whether its a filepath, a dictionary
+"""
+
 # Import third-party packages
 import json
 from os.path import isfile

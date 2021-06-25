@@ -1,3 +1,15 @@
+"""
+mpc_orb/bootstrap.py
+ - The function calls required to take us from ~nothing, to having fully specified schema for all file types
+ - This is the means by which the schema are defined / created
+ - Expected to be used rarely
+ - Expected to only be used internally by the MPC
+ - Essentially a convenience wrapper around the functionalities in schema.py
+
+Author(s)
+This module: MJP
+"""
+
 # Import third-party packages
 import json
 from jsonschema import validate
@@ -22,9 +34,11 @@ def bootstrap():
     The function calls required to take us from ~nothing, to having fully specified schema
     
     requires:
-    
+     - various defining json files to exist
+     - schema-creation code to exist in the schema.py module
+     
     creates:
-    
+     - schema-json files in ../json_files/schema_json/
     
     """
     
@@ -40,10 +54,13 @@ def bootstrap():
 
         # Get the file contents
         orbfit_dict,input_filepath = interpret.interpret(fp_in)
+        
         # Validate (unnecessary)
         schema.validate_orbfit_conversion(orbfit_dict)
+        
         # Convert to mpc_orb format
         mpcorb_format_dict = convert.std_format_els(orbfit_dict)
+        
         # Save to file
         schema.save_json(fp_out, mpcorb_format_dict)
 

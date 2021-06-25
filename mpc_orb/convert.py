@@ -1,3 +1,14 @@
+"""
+mpc_orb/convert.py
+ - The functions that are required to convert orbfit fel-files (in json format) to an mpc_orb.json
+ - Expected to be used frequently to convert the output from orbfit
+ - As written it requires modules that are likely to only be available on internal MPC machines
+
+Author(s)
+This module: MJP
+Many contained functions: MPan
+"""
+
 #!/usr/bin/env python3
 
 # Third party imports
@@ -16,7 +27,7 @@ try:
     sys.path.append('/ssd/share/apps/orbit_utils')
     import orbfit_to_dict as o2d
 except:
-    raise Exception("This conversion routine is intended for internal MPC usage and requires the modules, which are likely to only be available on internal MPC machines")
+    raise Exception("This conversion routine is intended for internal MPC usage and requires modules that are likely to only be available on internal MPC machines")
 
 # local imports
 # -----------------------
@@ -26,7 +37,24 @@ from schema import validate_orbfit_conversion, validate_mpcorb
 # Main code to run routine
 # -----------------------
 def convert(orbfit_input , output_filepath = None ):
-    """ Convert direct-output orbfit elements dictionary to standard format for external consumption """
+    """
+    Convert direct-output orbfit elements dictionary to standard format for external consumption
+    
+    inputs:
+    -------
+    orbfit_input: dict or filepath
+     - valid convertible orbfit felfile dict/file
+    
+    returns:
+    --------
+    standard_format_dict
+     - mpc_orb.json compatible
+    
+    optionally:
+    -----------
+    if an output filepath is supplied, then the output-dictionary will also be saved to file
+    
+    """
 
     # interpret the input (allow dict or filepath)
     orbfit_dict, input_filepath = interpret.interpret(orbfit_input)
@@ -46,12 +74,13 @@ def convert(orbfit_input , output_filepath = None ):
         output_filepath = output_filepath if output_filepath is not None else os.path.join(input_stem,"_mpcorb_",".json")
         save_to_file(standard_format_dict , output_filepath)
 
-    return True
+    return standard_format_dict
 
 def std_format_els(oldelsdict):
-
-    # Convert direct-output orbfit elements dictionary to standard format for external consumption
-
+    """
+    Convert direct-output orbfit elements dictionary to standard format for external consumption
+    """
+    
     elsdict = copy.deepcopy(oldelsdict)
     
     # THESE LINES WILL BECOME UNNECESSARY GIVEN VALIDATION
@@ -215,8 +244,9 @@ def to_names_dict(orbfitdes):
     
 
 def renumber_cov(covdict,numparams):
-
-    # Renumber covariances to have index ij for covariance between element i and element j
+    """
+    Renumber covariances to have index ij for covariance between element i and element j
+    """
     
     indexlist = get_indexlist(numparams)
 
@@ -231,9 +261,10 @@ def renumber_cov(covdict,numparams):
 
 
 def get_indexlist(numparams):
-
-    # Compute indexes ij for covariance entries sigma_ij when extracting them from orbfit's compressed format
-
+    """
+    Compute indexes ij for covariance entries sigma_ij when extracting them from orbfit's compressed format
+    """
+    
     indexes = []
     if numparams >=6:
             for ii in range(numparams):
@@ -246,9 +277,10 @@ def get_indexlist(numparams):
 
 
 def rename_els(coorddict,coordtype):
-
-    # Rename elements to be human-readable
-
+    """
+    Rename elements to be human-readable
+    """
+    
     if coordtype == 'EQU':
         elslist = ['a','e_sin_argperi','e_cos_argperi','tan_i/2_sin_node','tan_i/2_cos_node','mean_long']
     elif coordtype == 'KEP':
@@ -276,9 +308,10 @@ def rename_els(coorddict,coordtype):
 
 
 def attempt_str_conversion(s):
-
-    # Convert strings to numbers where possible
-
+    """
+    Convert strings to numbers where possible
+    """
+    
     assert isinstance(s,str)
     try:
         f = float(s)
