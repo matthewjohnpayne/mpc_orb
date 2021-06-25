@@ -8,12 +8,15 @@ As of 2021-06-25 most/all of this code can be blamed on MJP
 
 (1) bootstrap.py 
  - The function calls required to take us from ~nothing, to having fully specified schema for all file types
- - Expected to be used rarely & internally as the means by which the schema are defined / created
- - Expected to only be used internall by the MPC 
+ - This is the means by which the schema are defined / created
+ - Expected to be used rarely 
+ - Expected to only be used internally by the MPC 
+ - Essentially a convenience wrapper around the functionalities in schema.py
 
 (2) convert.py
  - The functions that are required to convert orbfit fel-files (in json format) to an mpc_orb.json
  - Expected to be used frequently to convert the output from orbfit
+ - As written it requires modules that are likely to only be available on internal MPC machines
 
 (3) filepaths.py
  - Simple file to define the directory structure & filepaths of this package
@@ -25,6 +28,9 @@ As of 2021-06-25 most/all of this code can be blamed on MJP
  - Code to parse an mpc_orb json file
  - Expected to be used frequently to read the contents of an mpc_orb.json
  - Expected to be of use to the external community as well as to the MPC
+ - ***THIS CODE IS STILL BEING DEVELOPED***
 
 (6) schema.py
- - Code to validate a candidate json-file against a schema file
+ - Code to *create* the required three types of schema file using supplied defining json-files
+ - Code to *validate* a candidate json-file against a schema file
+ - ***THIS CODE IS STILL BEING DEVELOPED***
